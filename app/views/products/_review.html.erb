@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= review.user.first_name %>
+  </td>
+  <td>
+    <%= time_ago_in_words(review.updated_at) %> ago
+  </td>
+  <td>
+    <%= review.description %>
+  </td>
+  <td>
+    <%= review.rating %>
+  </td>
+  <td>
+    <% if current_user === review.user %>
+    <%= link_to 'Delete', product_review_path(review.product_id, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% end %>
+  </td>
+</tr>

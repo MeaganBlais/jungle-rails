@@ -132,5 +132,119 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+puts "Creating Users ..."
+
+user1 = User.create({
+  first_name: 'Bob',
+  last_name: 'Smith',
+  email: 'bob@gmail.com',
+  password_digest: BCrypt::Password.create('easy')
+  })
+
+user2 = User.create({
+  first_name: 'Mary',
+  last_name: 'Smith',
+  email: 'mary@gmail.com',
+  password_digest: BCrypt::Password.create('easy')
+  })
+
+user3 = User.create({
+  first_name: 'Sally',
+  last_name: 'Smith',
+  email: 'sally@gmail.com',
+  password_digest: BCrypt::Password.create('easy')
+  })
+
+## REVIEWS
+
+puts "Creating Reviews ..."
+
+pf1 = Product.find(1)
+pf2 = Product.find(2)
+pf3 = Product.find(3)
+pf4 = Product.find(4)
+pf5 = Product.find(5)
+pf6 = Product.find(6)
+pf7 = Product.find(7)
+
+pf1.reviews.create({
+  product_id: pf1,
+  user_id: user1.id,
+  description: 'Classy!',
+  rating: 4
+
+  })
+
+pf2.reviews.create({
+  product_id: pf2,
+  user_id: user2.id,
+  description: 'A little long.',
+  rating: 3
+
+  })
+
+pf3.reviews.create({
+  product_id: pf3,
+  user_id: user1.id,
+  description: 'Fits great.',
+  rating: 4
+
+  })
+
+pf4.reviews.create({
+  product_id: pf4,
+  user_id: user2.id,
+  description: 'Comfy.',
+  rating: 5
+
+  })
+
+pf5.reviews.create({
+  product_id: pf5,
+  user_id: user1.id,
+  description: "don't tell anyone I'm a spy." ,
+  rating: 4
+
+  })
+
+pf6.reviews.create({
+  product_id: pf6,
+  user_id: user3.id,
+  description: 'weird ...',
+  rating: 2
+
+  })
+
+pf7.reviews.create({
+  product_id: pf7,
+  user_id: user1.id,
+  description: 'Soooooo FUN!',
+  rating: 5
+
+  })
+
+pf3.reviews.create({
+  product_id: pf3,
+  user_id: user2.id,
+  description: 'Too Big.',
+  rating: 1
+
+  })
+
+pf7.reviews.create({
+  product_id: pf7,
+  user_id: user3.id,
+  description: 'Broke my leg :(. ',
+  rating: 2
+
+  })
+
+
+
+
+
+
 
 puts "DONE!"
