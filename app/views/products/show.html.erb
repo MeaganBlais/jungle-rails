@@ -45,33 +45,36 @@
       </table>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <%= form_for(:review, url: "/products/#{@product.id}/reviews", :html => {class: "form-horizontal", role: "form"}) do |f| %>
-        <div class="form-group">
-          <div class="control-label col-md-2">
-            <%= f.label :description %>
+    <% if current_user %>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= form_for(:review, url: "/products/#{@product.id}/reviews", :html => {class: "form-horizontal", role: "form"}) do |f| %>
+          <div class="form-group">
+            <div class="control-label col-md-2">
+              <%= f.label :description %>
+            </div>
+            <div class="col-md-10">
+              <%= f.text_area :description, class: "form-control" %>
+            </div>
           </div>
-          <div class="col-md-10">
-            <%= f.text_area :description, class: "form-control" %>
+          <div class="form-group">
+            <div class="control-label col-md-2">
+              <%= f.label :rating %>
+            </div>
+            <div class="col-md-10">
+              <%= f.select :rating, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), class: "form-control" %>
+            </div>
+          <div class="form-group">
+            <div class="col-md-offset-11 col-md-1">
+              <%= f.submit "Submit", class: "btn btn-primary btn-lg btn-xlarge" %>
+            </div>
           </div>
+          <% end %>
         </div>
-        <div class="form-group">
-          <div class="control-label col-md-2">
-            <%= f.label :rating %>
-          </div>
-          <div class="col-md-10">
-            <%= f.select :rating, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-offset-11 col-md-1">
-            <%= f.submit "Submit", class: "btn btn-primary btn-lg btn-xlarge" %>
-          </div>
-        </div>
-        <% end %>
       </div>
-    </div>
+    <% end %>
+
 
 
   </article>
