@@ -26,3 +26,10 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+
+![alt tag](https://github.com/MeaganBlais/jungle-rails/blob/master/app/assets/images/Admin-Categories.png "Admin Categories")
+![alt tag](https://github.com/MeaganBlais/jungle-rails/blob/master/app/assets/images/AdminAccess%26SoldOut.png "Admin Access & Sold Out Badge")
+![alt tag](https://github.com/MeaganBlais/jungle-rails/blob/master/app/assets/images/OrderDetails.png "Order Details")
+![alt tag](https://github.com/MeaganBlais/jungle-rails/blob/master/app/assets/images/Register.png "Register")
+![alt tag](https://github.com/MeaganBlais/jungle-rails/blob/master/app/assets/images/Reviews.png "Reviews")
