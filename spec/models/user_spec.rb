@@ -33,38 +33,33 @@ RSpec.describe User, type: :model do
 
   end
 
-  describe '.authenticate_with_credentials' do
+    describe '.authenticate_with_credentials' do
 
 
-  it "return user when passed correct params" do
-    @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
-    expect(User.authenticate_with_credentials(@user.email, @user.password)).to eql @user
+    it "return user when passed correct params" do
+      @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
+      expect(User.authenticate_with_credentials(@user.email, @user.password)).to eql @user
+    end
+
+    it "return nil when passed incorrect email" do
+      @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
+      expect(User.authenticate_with_credentials("incorrect_email", @user.password)).to eql nil
+    end
+
+    it "return nil when passed incorrect password" do
+      @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
+      expect(User.authenticate_with_credentials(@user.email, "hard123")).to eql nil
+    end
+
+    it "return user when passed spaces before email" do
+      @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
+      expect(User.authenticate_with_credentials("   #{@user.email}", "easy123")).to eql @user
+    end
+
+    it "return user when passed mixed case email" do
+      @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
+      expect(User.authenticate_with_credentials(@user.email.upcase, "easy123")).to eql @user
+    end
+
   end
-
-  it "return nil when passed incorrect email" do
-    @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
-    expect(User.authenticate_with_credentials("incorrect_email", @user.password)).to eql nil
-  end
-
-  it "return nil when passed incorrect password" do
-    @user = User.create({ first_name: 'Freddy',last_name: 'Smith', email: 'freddy@gmail.com', password: 'easy123', password_confirmation: 'easy123' })
-    expect(User.authenticate_with_credentials(@user.email, "incorrect_password")).to eql nil
-end
-
-
-
-
-
-
-
-  end
-
-
-
-
-
-
-
-
-
 end
